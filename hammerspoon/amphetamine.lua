@@ -36,9 +36,10 @@ local caffeine = hs.menubar.new()
 function setCaffeineDisplay(state)
     if state then
         caffeine:setIcon(ampOnIcon)
+        hs.alert.show("Caffeine On")
     else
         caffeine:setIcon(ampOffIcon)
-    end
+        hs.alert.show("Caffeine Off")
 end
 
 function caffeineClicked()
@@ -49,4 +50,3 @@ if caffeine then
     caffeine:setClickCallback(caffeineClicked)
     setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
-

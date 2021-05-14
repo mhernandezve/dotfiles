@@ -14,7 +14,7 @@ obj.author = "Peter Klijn"
 obj.homepage = "https://github.com/peterklijn/hammerspoon-shiftit"
 obj.license = ""
 
-obj.mash = { 'ctrl', 'alt', 'cmd', 'shift'}
+obj.mash = hyper
 obj.mapping = {
   left = { obj.mash, 'left' },
   right = { obj.mash, 'right' },
