@@ -95,3 +95,4 @@ nnoremap <leader>dp :DiffChangesPatchToggle<cr>
 " ----------------------------------------------------------------------------
 xnoremap <leader>ht :Heytmux<cr>
 
+nnoremap g. :normal! `[v`]<cr><left>
