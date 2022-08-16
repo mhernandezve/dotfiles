@@ -1,0 +1,92 @@
+! urxvt
+!Xft.dpi: 92
+22t.lcdfilter: lcddefault
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.autohint: 0
+Xft.rgba: rgb
+Xft.antialias: 1
+
+/* urL-yanking */
+URxvt.perl-ext-common: default,url-select,resize-font,clipboard,keyboard-select
+
+URxvt.colorUL: #98971a
+URxvt.matcher.button: 1
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+
+URxvt*background: rgba:0000/0000/0200/c800
+URxvt*foreground: white
+
+/* Needs to be disabled for C-S keybindings to work */
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.urgentOnBell: true
+URxvt.cursorBlink: false
+URxvt.transparent: false
+URxvt.shading:          20
+URxvt.scrollBar:        false
+URxvt.saveLines:        4096
+URxvt.mouseWheelScrollPage: true
+
+urxvt*depth: 32
+
+ratmenu.style: dreary
+ratmenu.font: fixed
+ratmenu.bgcolor: #222222
+ratmenu.fgcolor: #99ff00
+
+URxvt.borderless: true
+URxvt.geometry: 120x40
+
+/* Colors */
+
+/* dzen2 */
+dzen2.font: xft:M+ 1m regular:size=11
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #282828, #a89984, #a89984
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #282828, #ebdbb2, #32302f, #665c54, #fbf1c7
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828
+
+rofi.separator-style: solid
+rofi.sidebar-mode: true
+rofi.bw: 1
+rofi.columns: 1
+rofi.padding: 16
+
+rofi.yoffset: 0
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.font: Hasklig 14
+rofi.lines: 15
+rofi.fixed-num-lines: true
+
+/* fonts */
+URxvt.font:     xft:MesloLGS NF:size=14:antialias=true
+URxvt.boldFont: xft:MesloLGS NF:bold:size=14:antialias=true
+URxvt.italicFont:  xft:MesloLGS NF:italic:size=14:antialias=true
+URxvt.letterSpace: -1.5
+
+xscreensaver.splash: false
+xscreensaver.Dialog.foreground: r_fg
+xscreensaver.Dialog.background: S_base04
+xscreensaver.Dialog.topShadowColor: #0a0a0a
+xscreensaver.Dialog.bottomShadowColor: #161616
+xscreensaver.Dialog.Button.foreground: r_fg
+xscreensaver.Dialog.Button.background: r_bg
+xscreensaver.Dialog.borderWidth: 0
+xscreensaver.Dialog.internalBorderWidth: 0
+xscreensaver.passwd.thermometer.background: r_bg
+xscreensaver.passwd.thermometer.foreground: r_hlfg
+xscreensaver.passwd.thermometer.width: 8
