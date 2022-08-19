@@ -21,14 +21,16 @@ set tabstop=2
 call plug#begin('~/.local/share/nvim/plugged')
 
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'edkolev/tmuxline.vim'
+    Plug 'sainnhe/everforest'
 
     " Utilities
     Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
     Plug 'ap/vim-css-color'
     Plug 'preservim/nerdtree'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-fugitive'
       nmap     <Leader>g :Git<CR>gg<c-n>
       nnoremap <Leader>d :Gdiff<CR>
@@ -50,6 +52,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'TimUntersberger/neogit'
 call plug#end()
 
+if has('termguicolors')
+  set termguicolors
+endif
+
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
@@ -57,6 +63,14 @@ let g:NERDTreeQuitOnOpen = 1
 :nnoremap <C-j> :Files<CR>
 :nnoremap <C-g> :Commits<CR>
 :nnoremap <C-h> :Ag<CR>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'everforest'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#show_tab_count = 2
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+" let g:everforest_cursor = 'orange'
+" let g:everforest_current_word = 'underline'
 
 let g:fzf_preview_window = ['right:40%', 'ctrl-/']
 
@@ -67,6 +81,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 let mapleader=" "
 let maplocalleader = ' '
+
+let g:everforest_background = 'hard'
+
+" For better performance
+let g:everforest_better_performance = 1
+let g:everforest_enable_italic = 1
+
 nnoremap <SPACE> <Nop>
 
 nnoremap <leader>o o<esc>
@@ -128,3 +149,5 @@ call s:tmux_map('<leader>ty', '.top-left')
 call s:tmux_map('<leader>to', '.top-right')
 call s:tmux_map('<leader>tn', '.bottom-left')
 call s:tmux_map('<leader>t.', '.bottom-right')
+
+colorscheme everforest
