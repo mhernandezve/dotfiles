@@ -24,6 +24,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'ryanoasis/vim-devicons'
     Plug 'edkolev/tmuxline.vim'
+    Plug 'preservim/vimux'
     Plug 'sainnhe/everforest'
 
     " Utilities
@@ -35,9 +36,10 @@ call plug#begin('~/.local/share/nvim/plugged')
       nmap     <Leader>g :Git<CR>gg<c-n>
       nnoremap <Leader>d :Gdiff<CR>
     Plug 'rhysd/git-messenger.vim'
-    
+    Plug 'hashivim/vim-terraform'
+
     " Completion / linters / formatters
-    Plug 'plasticboy/vim-markdown'
+    Plug 'preservim/vim-markdown'
 
     " Git
     Plug 'airblade/vim-gitgutter'
@@ -56,6 +58,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
+let g:vim_markdown_folding_disabled = 1
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
