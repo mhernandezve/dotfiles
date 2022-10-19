@@ -63,9 +63,11 @@ let g:NERDTreeChDirMode = 2
 let NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 :nnoremap <C-n> :NERDTreeToggle<CR>
-:nnoremap <C-j> :Files<CR>
-:nnoremap <C-g> :Commits<CR>
-:nnoremap <C-h> :Ag<CR>
+" nnoremap <C-w> :Files<CR>
+:nnoremap <C-p> :Commits<CR>
+nnoremap <C-g> :Ag<CR>
+" nnoremap <leader>o o<esc>
+" nnoremap <silent><leader>l :Buffers<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'everforest'
@@ -125,6 +127,12 @@ xnoremap <leader>ht :Heytmux<cr>
 
 " Last inserted text
 nnoremap g. :normal! `[v`]<cr><left>
+
+" Remap split windows shortcuts
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " ----------------------------------------------------------------------------
 " tmux

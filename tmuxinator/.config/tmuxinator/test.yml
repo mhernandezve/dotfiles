@@ -52,4 +52,5 @@ windows:
       # synchronize: after
       panes:
         - nvim
-        - 
+  - server:
+        - yarn dev
