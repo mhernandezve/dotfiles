@@ -26,6 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'edkolev/tmuxline.vim'
     Plug 'preservim/vimux'
     Plug 'sainnhe/everforest'
+    Plug 'sainnhe/gruvbox-material'
 
     " Utilities
     Plug 'sheerun/vim-polyglot'
@@ -161,4 +162,4 @@ call s:tmux_map('<leader>to', '.top-right')
 call s:tmux_map('<leader>tn', '.bottom-left')
 call s:tmux_map('<leader>t.', '.bottom-right')
 
-colorscheme everforest
+colorscheme gruvbox-material
