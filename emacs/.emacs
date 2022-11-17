@@ -15,15 +15,11 @@
 (require 'package)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
-
 (require 'org)
 
-(setq org-agenda-files '("~/gtd/inbox.org"
-                         "~/gtd/gtd.org"
-                         "~/gtd/tickler.org"))
+(setq org-agenda-files '("~/Documents/personal/orgmode/gtd/inbox.org"
+                         "~/Documents/personal/orgmode/gtd/gtd.org"
+                         "~/Documents/personal/orgmode/gtd/tickler.org"))
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                (file+headline "~/Documents/personal/orgmode/gtd/gtd.org" "Tasks")
@@ -49,8 +45,9 @@
 
 ;; Org-mode settings
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 (global-font-lock-mode 1)
 
 ;; TODO states
