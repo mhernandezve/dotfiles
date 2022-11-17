@@ -63,9 +63,9 @@ let g:NERDTreeChDirMode = 2
 let NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 :nnoremap <C-n> :NERDTreeToggle<CR>
-" nnoremap <C-w> :Files<CR>
+:nnoremap <C-w> :Files<CR>
 :nnoremap <C-p> :Commits<CR>
-nnoremap <C-g> :Ag<CR>
+:nnoremap <C-g> :Ag<CR>
 " nnoremap <leader>o o<esc>
 " nnoremap <silent><leader>l :Buffers<CR>
 
