@@ -15,8 +15,9 @@ set ignorecase smartcase
 
 " Tabs size
 set expandtab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
+filetype indent on
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -33,18 +34,28 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'ap/vim-css-color'
     Plug 'preservim/nerdtree'
-    Plug 'tpope/vim-fugitive'
-      nmap     <Leader>g :Git<CR>gg<c-n>
-      nnoremap <Leader>d :Gdiff<CR>
     Plug 'rhysd/git-messenger.vim'
     Plug 'hashivim/vim-terraform'
 
     " Completion / linters / formatters
     Plug 'preservim/vim-markdown'
+    " Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    Plug 'davidhalter/jedi-vim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    Plug 'scrooloose/syntastic'
+    Plug 'fisadev/vim-isort'
+    Plug 'vim-python/python-syntax'
+    Plug 'psf/black', { 'branch': 'stable' }
 
     " Git
+    Plug 'tpope/vim-fugitive'
+      nmap     <Leader>g :Git<CR>gg<c-n>
+      nnoremap <Leader>d :Gdiff<CR>
     Plug 'airblade/vim-gitgutter'
+    Plug 'TimUntersberger/neogit'
 
+    " Fuzzers
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'jmcantrell/vim-diffchanges'
@@ -52,7 +63,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mhinz/vim-startify'
 
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'TimUntersberger/neogit'
 call plug#end()
 
 if has('termguicolors')
@@ -64,11 +74,11 @@ let g:NERDTreeChDirMode = 2
 let NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 :nnoremap <C-n> :NERDTreeToggle<CR>
-:nnoremap <C-w> :Files<CR>
+" :nnoremap <C-w> :Files<CR>
 :nnoremap <C-p> :Commits<CR>
 :nnoremap <C-g> :Ag<CR>
 " nnoremap <leader>o o<esc>
-" nnoremap <silent><leader>l :Buffers<CR>
+nnoremap <silent><leader>l :Buffers<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'everforest'
@@ -78,12 +88,23 @@ let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 " let g:everforest_cursor = 'orange'
 " let g:everforest_current_word = 'underline'
 
-let g:fzf_preview_window = ['right:40%', 'ctrl-/']
+let g:fzf_preview_window = ['right:45%', 'ctrl-/']
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
+" Close the tab if NERDTree is the only window remaining in it.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" deoplete Close preview window after completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let mapleader=" "
 let maplocalleader = ' '
@@ -93,6 +114,33 @@ let g:everforest_background = 'hard'
 " For better performance
 let g:everforest_better_performance = 1
 let g:everforest_enable_italic = 1
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python', 'flake8']
+" let g:syntastic_python_pylint_post_args="--max-line-length=88"
+" let g:syntastic_python_flake8_args='--ignore=E225 --max-line-length 88'
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+
+
+" python-syntax
+let g:python_highlight_all = 1
 
 nnoremap <SPACE> <Nop>
 

@@ -67,3 +67,6 @@
         ("OBE" . (:foreground "LimeGreen" :weight bold))
         ("WONT-DO" . (:foreground "LimeGreen" :weight bold))
         ))
+
+(setq org-export-with-sub-superscripts nil)
+
