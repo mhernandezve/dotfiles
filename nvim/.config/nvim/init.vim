@@ -47,7 +47,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'fisadev/vim-isort'
     Plug 'vim-python/python-syntax'
     Plug 'psf/black', { 'branch': 'stable' }
-
+    
+    Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+    
     " Git
     Plug 'tpope/vim-fugitive'
       nmap     <Leader>g :Git<CR>gg<c-n>
@@ -93,6 +95,10 @@ let g:fzf_preview_window = ['right:45%', 'ctrl-/']
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
+" pydocstring formatter
+let g:pydocstring_formatter = 'numpy'
+let g:pydocstring_templates_path = '~/.config/nvim/pydocstring/templates'
+
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -105,6 +111,8 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 
 " deoplete Close preview window after completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+let g:python3_host_prog = '/Users/miguel.hernandez02/.pyenv/versions/py3nvim/bin/python'
 
 let mapleader=" "
 let maplocalleader = ' '
