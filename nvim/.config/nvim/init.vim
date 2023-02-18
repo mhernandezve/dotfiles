@@ -112,7 +112,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " deoplete Close preview window after completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-let g:python3_host_prog = '/Users/miguel.hernandez02/.pyenv/versions/py3nvim/bin/python'
+let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
 
 let mapleader=" "
 let maplocalleader = ' '
