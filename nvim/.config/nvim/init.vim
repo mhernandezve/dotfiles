@@ -46,6 +46,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/syntastic'
     Plug 'fisadev/vim-isort'
     Plug 'vim-python/python-syntax'
+    Plug 'github/copilot.vim'
     Plug 'psf/black', { 'branch': 'stable' }
     
     Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
