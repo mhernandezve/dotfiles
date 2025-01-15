@@ -1,24 +1,6 @@
-    amphetamine = require "amphetamine"
+Hyper = {"ctrl", "alt", "cmd", "shift"}
 
-require 'battery'
-
-hyper = {"ctrl", "alt", "cmd", "shift"}
-
-hs.loadSpoon("ShiftIt")
-spoon.ShiftIt:bindHotkeys({})
-
-hs.hotkey.bind(hyper, "W", function()
-  caffeineClicked()
-end)
-
-hs.hotkey.bind(hyper, "R", function()
-  hs.reload()
-end)
-
-hs.hotkey.bind(hyper, 'L', function() 
-  hs.caffeinate.lockScreen() 
-end)
-
-hs.hotkey.bind(hyper, 'T', function() 
-  hs.application.launchOrFocus("iTerm") 
-end)
+require "misc.amphetamine"
+require 'misc.battery'
+require 'misc.hotkeys'
+require 'misc.clipboard'
