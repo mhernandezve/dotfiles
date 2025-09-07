@@ -1,0 +1,6 @@
+[submodule "nvim/neovim-config.lua"]
+	path = nvim/neovim-config.lua
+	url = https://github.com/mhernandezve/neovim-config.lua
+[submodule "neovim-config.lua"]
+	path = neovim-config.lua
+	url = https://github.com/mhernandezve/neovim-config.lua
