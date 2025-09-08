@@ -18,9 +18,9 @@ end
 
 # Define a task with prerequisites
 desc "Download Config Files"
-task :configure_neovim do
+task :configure do
   Rake::Task['download:config'].invoke
-  Rake::Task['apply:config'["nvim"]].invoke
+  Rake::Task['apply:config'].invoke('nvim')
   Rake::Task['update:neovim'].invoke
 end
 
