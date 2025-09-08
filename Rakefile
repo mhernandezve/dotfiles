@@ -18,12 +18,14 @@ end
 
 # Define a task with prerequisites
 desc "Download Config Files"
-task :download_config do
+task :configure_neovim do
   Rake::Task['download:config'].invoke
+  Rake::Task['apply:config'["nvim"]].invoke
+  Rake::Task['update:neovim'].invoke
 end
 
 # Define a default task (runs when 'rake' is executed without arguments)
-task :default => :build
+task :default => :configure_neovim
 
 # Define a task with a description
 desc "Cleans temporary files"

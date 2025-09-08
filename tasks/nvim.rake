@@ -1,19 +1,40 @@
+namespace :download do
+  desc 'Download Config Files'
+  task :config do
+    section 'Downloading Config Files'
+    unless testing?
+      run %(git clone https://github.com/mhernandezve/dotfiles.git ~/.dotfiles)
+    end
+  end
+end
+
+namespace :set do
+  desc 'Create symlink to the nvim folder'
+  task :config do
+    section 'Creating a symlink to the nvim folder'
+    unless testing?
+      run %(ln -s ~/.dotfiles/nvim ~/.config/nvim)
+    end
+  end
+end
+
+namespace :apply do
+  desc 'Create symlink to the config folder'
+  task :config, [:folder] do |t, args|
+    section "Creating a symlink to the #{folder}! folder"
+    unless testing?
+      run %(ln -s ~/.dotfiles/#{folder}! ~/.config/#{folder}!)
+    end
+  end
+end
+
 namespace :update do
-  desc 'Install Neovim'
+  desc 'Update Neovim'
   task :neovim do
-    section 'Installing Neovim'
+    section 'Updating Neovim'
     unless testing?
       run %(nvim --headless "+Lazy! update" +qa)
     end
   end
 end
 
-namespace :download do
-  desc 'Download Config Files'
-  task :config do
-    section 'Downloading Config Files'
-    unless testing?
-      run %(git clone https://github.com/mhernandezve/dotfiles.git ~/.config/.dotfiles)
-    end
-  end
-end
