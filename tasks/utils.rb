@@ -16,3 +16,7 @@ def run(cmd)
   puts "~>#{cmd}"
   sh cmd unless ENV['DRY_RUN']
 end
+
+def directory_exists?(directory)
+  File.directory?(directory)
+end
