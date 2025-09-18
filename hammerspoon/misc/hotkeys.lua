@@ -1,4 +1,4 @@
-Hyper = {"ctrl", "alt", "cmd", "shift"}
+Hyper = { "ctrl", "alt", "cmd", "shift" }
 
 hs.loadSpoon("ShiftIt")
 spoon.ShiftIt:bindHotkeys({})

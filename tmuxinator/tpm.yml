@@ -1,7 +1,5 @@
-# /Users/miguel.hernandez02/.config/tmuxinator/tpm.yml
-
 name: tpm
-root: . 
+root: .
 
 # Optional tmux socket
 # socket_name: foo
@@ -30,7 +28,7 @@ root: .
 # pre_window: rbenv shell 2.0.0-p247
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
-tmux_options: -f ~/.tmux.conf
+# tmux_options: -f ~/.tmux.conf
 
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
@@ -46,14 +44,10 @@ tmux_options: -f ~/.tmux.conf
 
 windows:
   - editor:
-      layout: main-horizontal
+      layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - nvim
-        - 
-  - tpm:
-      layout: main-vertical
-      panes:
+        - v
         - 
