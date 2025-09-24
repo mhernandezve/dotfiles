@@ -1,6 +1,9 @@
 name: nvim-layout
 root: . 
 
+on_project_start:
+  - "[ -f \"./.env\" ] && . ./.env" 
+
 windows:
   - editor:
       layout: 7182,159x43,0,0[159x32,0,0,1,159x10,0,33,3]
