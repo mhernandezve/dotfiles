@@ -8,10 +8,14 @@ windows:
   - editor:
       layout: 7182,159x43,0,0[159x32,0,0,1,159x10,0,33,3]
       panes:
-        - v
-        - 
+        - editor:
+            - tmux select-pane -T editor && v
+        - shell:
+            - tmux select-pane -T shell
   - command-line:
-      layout: main-horizontal
+      layout: even-horizontal
       panes:
-        - 
-
+        - claude:
+            - tmux select-pane -T claude && claude
+        - codex:
+            - tmux select-pane -T codex && codex
