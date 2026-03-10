@@ -1,5 +1,5 @@
-name: nvim-layout
-root: . 
+name: <%= @args[0] %>
+root: <%= @args[1] %>
 
 on_project_start:
   - "[ -f \"./.env\" ] && . ./.env" 
