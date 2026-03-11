@@ -1,4 +1,3 @@
--- lua/plugins/codecompanion.lua
 return {
   "olimorris/codecompanion.nvim",
   event = "VeryLazy",
@@ -14,40 +13,7 @@ return {
   end,
 
   opts = {
-    interactions = {
-      chat = { adapter = { name = "geai", model = "saia:assistant:test" } },
-      inline = { adapter = { name = "geai", model = "saia:assistant:test" } },
-    },
-
-    adapters = {
-      http = {
-        geai = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            formatted_name = "GEAI",
-            env = {
-              url = "GEAI_ENDPOINT",
-              api_key = "GEAI_API_KEY",
-              chat_url = "/chat/completions",
-              models_endpoint = "/models",
-            },
-            schema = {
-              model = {
-                default = "saia:assistant:test",
-                choices = {
-                  "saia:assistant:test",
-                  "saia:search:test",
-                  "saia:agent:test",
-                },
-              },
-            },
-            opts = {
-              temperature = 0.5,
-              max_tokens = 8192,
-            },
-          })
-        end,
-      },
-    },
+    adapters = {},
 
     extensions = {
       mcphub = {
@@ -57,7 +23,7 @@ return {
           show_server_tools_in_chat = true,
           add_mcp_prefix_to_tool_names = false,
           show_result_in_chat = true,
-          make_vars = true,
+          make_vars = false,
           make_slash_commands = true,
         },
       },
@@ -70,15 +36,12 @@ return {
           expiration_days = 0,
           picker = "fzf-lua",
           dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
-
           picker_keymaps = {
             rename = { n = "r", i = "<M-r>" },
             delete = { n = "d", i = "<M-d>" },
             duplicate = { n = "<C-y>", i = "<C-y>" },
           },
-
           auto_generate_title = true,
-
           summary = {
             create_summary_keymap = "gcs",
             browse_summaries_keymap = "gbs",
@@ -88,7 +51,6 @@ return {
               include_tool_outputs = true,
             },
           },
-
           memory = {
             auto_create_memories_on_summary_generation = true,
             vectorcode_exe = "vectorcode",

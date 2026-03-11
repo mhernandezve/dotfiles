@@ -11,7 +11,7 @@ return {
                     api_key = os.getenv("OPENAI_API_KEY"),
                 },
                 azure = {
-                    endpoint = "https://testaiproject3308847590.services.ai.azure.com/models/v1/chat/completions?api-version=2024-05-01-preview",
+                    endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
                     secret = os.getenv("AZURE_OPENAI_API_KEY"),
                 },
                 copilot = {
